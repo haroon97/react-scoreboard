@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div>
         <Header title="Scoreboard" player={1}/>
-        <Player playerName={"Haroon"}/>
+        <Player playerName={"Haroon"} score={25}/>
       </div>
     );
   }
