@@ -5,6 +5,7 @@ const Player = (props) => {
   return (
     <div className='player'>
       <span className='player-name'>
+        <button onClick={() =>  props.removePlayer(props.id) } className="remove-player">✖</button>
         {props.playerName}
       </span>
       <Counter />
