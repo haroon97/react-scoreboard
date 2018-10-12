@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddPlayerForm extends Component {
 
-  state = {
-    playerName: ''
+  static propTypes = {
+    addPlayer: PropTypes.func
   }
 
-  onNameChange = (e) => {
-    this.setState({ playerName: e.target.value })
-  }
+  playerInput = React.createRef();
 
   onPlayerSubmit = (e) => {
     e.preventDefault();
-    this.props.addPlayer(this.state.playerName)
+    this.props.addPlayer(this.playerInput.current.value);
+    e.currentTarget.reset();
   } 
 
   render() {
     return (
         <form onSubmit={this.onPlayerSubmit}>
-          { console.log(this.state.playerName) }
           <input 
+          ref={this.playerInput}
           type="text"
           placeholder="Enter player's name"
-          value={this.state.playerName}
-          onChange={this.onNameChange}
           required
           />
           <input 
